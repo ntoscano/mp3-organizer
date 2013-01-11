@@ -15,3 +15,5 @@ run in terminal
     $ python eyeD3test.py
     
 wont work if you do not put in your absolute locations
+
+nicolas.toscano@gmail.com for questions
