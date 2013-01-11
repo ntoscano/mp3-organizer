@@ -22,8 +22,13 @@ for file_name in files:
         except OSError as e:
             if e.errno!= errno.EEXIST:
                 raise
+        try:
+            os.mkdir(os.path.expanduser('~/Desktop/mp3-organizer/%s/%s' % (song_info.tag.artist, song_info.tag.album)))
+        except OSError as e:
+            if e.errno!= errno.EEXIST:
+                raise
         print song_info
         print song_info.tag.artist
-        shutil.move('%s' % file_name, '%s' % song_info.tag.artist)
+        shutil.move('%s' % file_name, '%s/%s' % (song_info.tag.artist, song_info.tag.album))
     else:
         pass
