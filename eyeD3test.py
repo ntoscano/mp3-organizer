@@ -3,7 +3,11 @@ import eyed3 #imports eyed3 functions
 import errno
 import shutil
 
-root_folder = '/Volumes/Other Stuff/music/music'
+os.curdir
+
+root_folder = os.path.realpath(os.curdir)
+
+print root_folder
 
 files = os.listdir(root_folder) #lists all files in specified directory
 
@@ -26,14 +30,16 @@ for file_name in files:
             print 'Skipping %s' % abs_location
             continue
         try:
-            os.mkdir(os.path.expanduser('/Volumes/Other Stuff/music/music/%s' % song_info.tag.artist))
+            artist_folder = os.path.join(root_folder, '%s' % song_info.tag.artist)
+            os.mkdir(artist_folder)
         except OSError as e:
             if e.errno!= errno.EEXIST:
                 raise
         except UnicodeDecodeError:
             pass
         try:
-            os.mkdir(os.path.expanduser('/Volumes/Other Stuff/music/music/%s/%s' % (song_info.tag.artist, song_info.tag.album)))
+            album_folder = os.path.join(artist_folder, '%s' %song_info.tag.album)
+            os.mkdir(album_folder)
         except OSError as e:
             if e.errno!= errno.EEXIST:
                 raise
