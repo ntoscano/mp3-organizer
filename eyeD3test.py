@@ -54,12 +54,16 @@ def question():
                 print file_name
                 print song_info.tag.artist
                 try :
-                    shutil.move('%s' % file_name, '%s/%s' % (song_info.tag.artist, song_info.tag.album))
+                    source_folder = ('%s' % file_name)
+                    dest_folder = ('%s/%s' % (song_info.tag.artist, song_info.tag.album))
+                    shutil.move(source_folder, dest_folder)
                 except UnicodeDecodeError:
                     pass
                 except shutil.Error:
                     try:
-                        os.renames('%s' % file_name, '%s_%s' % (file_name, song_info.tag.artist))
+                        OG_name = '%s' % file_name
+                        new_name = '%s_%s.mp3' % (song_info.tag.title, song_info.tag.artist)
+                        os.renames(OG_name, new_name)
                     except OSError:
                         pass
             else:
@@ -91,12 +95,16 @@ def question():
                 print file_name
                 print song_info.tag.artist
                 try :
-                    shutil.move('%s' % file_name, '%s' % song_info.tag.artist)
+                    source_folder = ('%s' % file_name)
+                    dest_folder = ('%s/' % song_info.tag.artist)
+                    shutil.move(source_folder, dest_folder)
                 except UnicodeDecodeError:
                     pass
                 except shutil.Error:
                     try:
-                        os.renames('%s' % file_name, '%s_%s' % (file_name, song_info.tag.artist))
+                        OG_name = '%s' % file_name
+                        new_name = '%s_%s.mp3' % (song_info.tag.title, song_info.tag.artist)
+                        os.renames(OG_name, new_name)
                     except OSError:
                         pass
             else:
