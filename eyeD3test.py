@@ -3,14 +3,8 @@ import eyed3 #imports eyed3 functions
 import errno
 import shutil
 
-os.curdir
-
-root_folder = os.path.realpath(os.curdir)
-
-print root_folder
-
-files = os.listdir(root_folder) #lists all files in specified directory
-def question():
+def question(root_folder):
+    files = os.listdir(root_folder) #lists all files in specified directory
     print '''Organize methods
     1.artist/album
     2.artit'''
@@ -112,7 +106,7 @@ def question():
     else:
         return 'question'
 
-question()
+if __name__ == "__main__":
+    root_folder = os.path.realpath(os.curdir)
+    question(root_folder)
 
-#improvements
-    #have this work on other computers
