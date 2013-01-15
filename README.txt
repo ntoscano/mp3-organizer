@@ -7,13 +7,14 @@ Developer: Nicolas Toscano
         Cesar Toscano
         Tim - stack overflow
         abarnert - stack overflow
+---------------------------------------------
 
-works on any OS that supports python
+Works on any OS that supports python
 
-download python file,
-input your specifications
-    (folders, username)
-run in terminal
+---------------------------------------------
+
+Download python file,
+Place file in same directory as music
+Run in terminal
     $ python eyeD3test.py
     
-wont work if you do not put in your absolute locations
